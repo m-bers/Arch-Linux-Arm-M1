@@ -23,7 +23,7 @@ sudo ln -s /Library/Application\ Support/com.canonical.multipass/bin/qemu-system
 curl -L https://github.com/m-bers/Arch-Linux-Arm-M1/releases/latest/download/archlinux.tar.gz | tar xzf -
 
 # Boot Arch Linux ARM
-qemu-system-aarch64 -L ~/bin/qemu/share/qemu \
+sudo qemu-system-aarch64 -L ~/bin/qemu/share/qemu \
 	-smp 8 \
 	-machine virt,accel=hvf,highmem=off \
 	-cpu cortex-a72 -m 4096 \
