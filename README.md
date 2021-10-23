@@ -3,7 +3,7 @@
 This is basically a scriptification of 
 [thalamus/ArchLinuxARM-M1](https://gist.github.com/thalamus/561d028ff5b66310fac1224f3d023c12) so most of the credit goes to the author of the gist. 
 ## Download
-Nightlies coming soon, download the initial release here: https://github.com/m-bers/Arch-Linux-Arm-M1/suites/4138169719/artifacts/106049850
+Get the initial release [here](https://github.com/m-bers/Arch-Linux-Arm-M1/releases/latest/download/archlinux.tar.gz)
 ## Booting the image
 Instructions below are based on the qemu-system-aarch64 binary included with the RC of [canonical/multipass](https://github.com/canonical/multipass/issues/1857#issuecomment-932232353) for Apple Silicon. 
 Another patched qemu binary should work as well, whether you compile it yourself or use the one included in UTM, as the original gist mentioned.
