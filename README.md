@@ -35,11 +35,12 @@ qemu-system-aarch64 -L ~/bin/qemu/share/qemu \
 ```
 ## Building an image
 
+On Ubuntu (I used 20.04):
 ```
-git clone 
-cd 
-./build.sh
-./boot.exp
+git clone https://github.com/m-bers/Arch-Linux-Arm-M1.git
+cd Arch-Linux-Arm-M1
+sudo ./build.sh
+sudo ./boot.exp
 ```
 
 License (if I'm doing this wrong let me know)
