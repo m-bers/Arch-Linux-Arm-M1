@@ -1,7 +1,13 @@
 ---
 name: "nightly"
 
-on: [push]
+on: 
+  push:
+    paths-ignore:
+      - '**/README.md'
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *' # Once per day at midnight UTC
 
 jobs:
   nightly:
@@ -16,9 +22,6 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
-          prerelease: true
-          title: "Arch Linux ARM image and efivars for qemu-system-aarch64"
+          title: "Arch Linux ARM M1"
           files: |
-            archlinux.qcow2
-            flash0.img
-            flash1.img
+            archlinux.tar.gz
