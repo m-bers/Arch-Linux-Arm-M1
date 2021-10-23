@@ -34,7 +34,8 @@ qemu-system-aarch64 -L ~/bin/qemu/share/qemu \
 	-device virtio-rng-device -device virtio-balloon-device -device virtio-keyboard-device \
 	-device virtio-mouse-device -device virtio-serial-device -device virtio-tablet-device \
 	-object cryptodev-backend-builtin,id=cryptodev0 \
-	-device virtio-crypto-pci,id=crypto0,cryptodev=cryptodev0
+	-device virtio-crypto-pci,id=crypto0,cryptodev=cryptodev0 \
+	-nographic
 ```
 ## Building an image
 On Ubuntu (I used 20.04):
