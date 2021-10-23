@@ -1,3 +1,4 @@
+[![Build Arch Linux ARM Disk Image](https://github.com/m-bers/Arch-Linux-Arm-M1/actions/workflows/build.yaml/badge.svg)](https://github.com/m-bers/Arch-Linux-Arm-M1/actions/workflows/build.yaml)
 # Arch Linux ARM for Apple Silicon Macs
 
 This is basically a scriptification of 
