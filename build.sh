@@ -4,7 +4,7 @@ set -o xtrace
 sudo apt-get -y update && apt-get -y install qemu-system-aarch64 qemu-utils libarchive-tools expect libguestfs-tools
 wget -nc -q http://os.archlinuxarm.org/os/ArchLinuxARM-aarch64-latest.tar.gz
 wget -nc -q https://github.com/qemu/qemu/raw/master/pc-bios/edk2-aarch64-code.fd.bz2
-qemu-img create archlinux.img 32G
+qemu-img create archlinux.img 16G
 
 sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk archlinux.img
   g     # create a GPT partition table
