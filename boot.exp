@@ -1,0 +1,27 @@
+#!/usr/bin/expect -f
+# Wait enough (forever) until a long-time boot
+set timeout -1
+set extuuid [lindex $argv 0];
+# Start the guest VM
+spawn qemu-system-aarch64 -L ~/bin/qemu/share/qemu \
+	-smp 8 \
+	-machine virt \
+	-cpu cortex-a72 -m 4096 \
+	-drive "if=pflash,media=disk,id=drive0,file=flash0.img,cache=writethrough,format=raw" \
+	-drive "if=pflash,media=disk,id=drive1,file=flash1.img,cache=writethrough,format=raw" \
+	-drive "if=virtio,media=disk,id=drive2,file=archlinux.qcow2,cache=writethrough,format=qcow2" \
+	-nic user,model=virtio-net-pci,hostfwd=tcp::50022-:22 -nographic \
+	-device virtio-rng-device -device virtio-balloon-device -device virtio-keyboard-device \
+	-device virtio-mouse-device -device virtio-serial-device -device virtio-tablet-device \
+	-object cryptodev-backend-builtin,id=cryptodev0 \
+	-device virtio-crypto-pci,id=crypto0,cryptodev=cryptodev0
+
+expect "login: "
+send "root\n"
+
+expect "Password: "
+send "root\n"
+
+expect "# "
+send -- "./setupefi.sh\r"
+expect eof
