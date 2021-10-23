@@ -1,7 +1,7 @@
 #!/bin/bash
 set -o xtrace
 
-sudo apt-get -y update && apt-get -y install qemu-system-aarch64 qemu-utils libarchive-tools expect
+sudo apt-get -y update && apt-get -y install qemu-system-aarch64 qemu-utils libarchive-tools expect libguestfs-tools
 wget -nc -q http://os.archlinuxarm.org/os/ArchLinuxARM-aarch64-latest.tar.gz
 wget -nc -q https://github.com/qemu/qemu/raw/master/pc-bios/edk2-aarch64-code.fd.bz2
 qemu-img create archlinux.img 32G
@@ -47,8 +47,10 @@ sudo umount root/boot
 sudo umount root
 sudo kpartx -d archlinux.img
 sudo sync
-qemu-img convert -O qcow2 archlinux.img archlinux.qcow2
+qemu-img convert -O qcow2 archlinux.img setup.qcow2
 truncate -s 64M flash0.img
 truncate -s 64M flash1.img
 bzip2 -d edk2-aarch64-code.fd.bz2
 dd if=edk2-aarch64-code.fd of=flash0.img conv=notrunc
+sudo ./boot.exp
+virt-sparsify setup.qcow2 archlinux.qcow2

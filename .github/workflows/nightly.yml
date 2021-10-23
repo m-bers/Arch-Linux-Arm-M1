@@ -11,7 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: sudo ${{ github.workspace }}/build.sh 
-      - run: sudo ${{ github.workspace }}/boot.exp
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
