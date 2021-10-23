@@ -1,0 +1,25 @@
+---
+name: "nightly"
+
+on: [push]
+
+jobs:
+  nightly:
+    name: "Arch Linux ARM nightly build"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: sudo ${{ github.workspace }}/build.sh 
+      - run: sudo ${{ github.workspace }}/boot.exp
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Arch Linux ARM image and efivars for qemu-system-aarch64"
+          files: |
+            archlinux.qcow2
+            flash0.img
+            flash1.img
