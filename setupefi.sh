@@ -6,4 +6,6 @@ pacman-key --init
 pacman-key --populate archlinuxarm
 pacman -Syu --noconfirm efibootmgr
 efibootmgr --disk /dev/vda --part 1 --create --label "Arch Linux ARM" --loader /Image --unicode "root=UUID=$EXT4_UUID rw initrd=\initramfs-linux.img" --verbose
+pacman -Sc
+rm $0
 poweroff
