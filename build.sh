@@ -54,3 +54,4 @@ bzip2 -d edk2-aarch64-code.fd.bz2
 dd if=edk2-aarch64-code.fd of=flash0.img conv=notrunc
 sudo ./boot.exp
 virt-sparsify setup.qcow2 archlinux.qcow2
+tar czf archlinux.tar.gz archlinux.qcow2 flash0.img flash1.img
