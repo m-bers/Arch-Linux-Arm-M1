@@ -2,10 +2,10 @@
 
 This is basically a scriptification of 
 [thalamus/ArchLinuxARM-M1](https://gist.github.com/thalamus/561d028ff5b66310fac1224f3d023c12) so most of the credit goes to tbe author of the gist. 
-I also use GitHub Actions to build a release nightly (If anyone knows the schedule for archlinuxarm rootfs image releases let me know and I'll adjust)
+I also will use GitHub Actions to build a release nightly (If anyone knows the schedule for archlinuxarm rootfs image releases let me know and I'll adjust)
 ## Download
 
-Download the latest nightly build here: 
+Nightlies coming soon, download the initial release here: https://github.com/m-bers/Arch-Linux-Arm-M1/suites/4138169719/artifacts/106049850
 
 ## Booting the image
 
