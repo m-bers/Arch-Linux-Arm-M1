@@ -17,12 +17,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: sudo ${{ github.workspace }}/build.sh 
-
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+#       - uses: "marvinpinto/action-automatic-releases@latest"
+#         with:
+#           repo_token: "${{ secrets.GITHUB_TOKEN }}"
+#           prerelease: false
+#           automatic_release_tag: "latest"
+#           title: "Arch Linux ARM M1"
+#           files: |
+#             archlinux.tar.gz
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
-          automatic_release_tag: "latest"
+          automatic_release_tag: nightly-${{ steps.date.outputs.date }}
           title: "Arch Linux ARM M1"
           files: |
             archlinux.tar.gz
