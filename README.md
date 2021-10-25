@@ -1,4 +1,4 @@
-[![nightly](https://github.com/m-bers/Arch-Linux-Arm-M1/actions/workflows/nightly.yml/badge.svg)](https://github.com/m-bers/Arch-Linux-Arm-M1/actions/workflows/nightly.yml)
+[![nightly](https://github.com/m-bers/Arch-Linux-Arm-M1/actions/workflows/nightly.yml/badge.svg)](https://github.com/m-bers/Arch-Linux-Arm-M1/actions/workflows/nightly.yml)![GitHub all releases](https://img.shields.io/github/downloads/m-bers/Arch-Linux-Arm-M1/total)
 # Arch Linux ARM for Apple Silicon Macs
 This is basically a scriptification of 
 [thalamus/ArchLinuxARM-M1](https://gist.github.com/thalamus/561d028ff5b66310fac1224f3d023c12) so most of the credit goes to the author of the gist. 
