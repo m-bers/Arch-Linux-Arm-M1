@@ -14,9 +14,9 @@ mkdir archlinux
 cd archlinux
 
 # Install multipass and link qemu-system-aarch64 to /usr/local/bin
-curl -LO https://multipass-ci.s3.amazonaws.com/multipass-1.8.0-rc.849%2Bgb6625c10.mac-Darwin.pkg
-sudo installer -pkg multipass-1.8.0-rc.849%2Bgb6625c10.mac-Darwin.pkg -target /
-rm multipass-1.8.0-rc.849%2Bgb6625c10.mac-Darwin.pkg
+curl -s https://api.github.com/repos/canonical/multipass/releases/latest | awk -F': ' '/browser_download_url/ && /\.pkg/ {gsub(/"/, "", $(NF)); system("curl -LO " $(NF))}'
+sudo installer -pkg multipass*.pkg -target /
+rm multipass*.pkg
 sudo ln -s /Library/Application\ Support/com.canonical.multipass/bin/qemu-system-aarch64 /usr/local/bin/qemu-system-aarch64
 
 # Download latest release and extract 
