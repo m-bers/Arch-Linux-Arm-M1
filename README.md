@@ -5,7 +5,7 @@ This is basically a scriptification of
 ## Download
 Get the latest release [here](https://github.com/m-bers/Arch-Linux-Arm-M1/releases/latest/download/archlinux.tar.gz)
 ## Booting the image
-Instructions below are based on the qemu-system-aarch64 binary included with the RC of [canonical/multipass](https://github.com/canonical/multipass/issues/1857#issuecomment-932232353) for Apple Silicon. 
+Instructions below are based on the qemu-system-aarch64 binary included with [canonical/multipass](https://github.com/canonical/multipass) for Apple Silicon. 
 Another patched qemu binary should work as well, whether you compile it yourself or use the one included in UTM, as the original gist mentioned.
 I did not have much success with the qemu binary included in the homebrew repos, but this will probably be fixed when QEMU 6.2 releases.
 ```zsh
