@@ -5,20 +5,16 @@ This is basically a scriptification of
 ## Download
 Get the latest release [here](https://github.com/m-bers/Arch-Linux-Arm-M1/releases/latest/download/archlinux.tar.gz)
 ## Booting the image
-Instructions below are based on the qemu-system-aarch64 binary included with [canonical/multipass](https://github.com/canonical/multipass) for Apple Silicon. 
-Another patched qemu binary should work as well, whether you compile it yourself or use the one included in UTM, as the original gist mentioned.
-I did not have much success with the qemu binary included in the homebrew repos, but this will probably be fixed when QEMU 6.2 releases.
+
+I'm using https://github.com/knazarov/homebrew-qemu-virgl because it seems to offer the best support for networking and graphics. I did not have much success with the qemu binary included in the homebrew repos, but this will probably be fixed when QEMU 6.2 releases. 
+
 ```zsh
+# Install qemu (needs homebrew, get it here: https://brew.sh/)
+brew install knazarov/qemu-virgl/qemu-virgl
+
 # make a suitable directory for image and efivars
 mkdir archlinux
 cd archlinux
-
-# Install multipass and link qemu-system-aarch64 to /usr/local/bin
-curl -s https://api.github.com/repos/canonical/multipass/releases/latest \
-  | awk -F': ' '/browser_download_url/ && /\.pkg/ {gsub(/"/, "", $(NF)); system("curl -LO " $(NF))}'
-sudo installer -pkg multipass*.pkg -target /
-rm multipass*.pkg
-sudo ln -s /Library/Application\ Support/com.canonical.multipass/bin/qemu-system-aarch64 /usr/local/bin/qemu-system-aarch64
 
 # Download latest release and extract 
 curl -L https://github.com/m-bers/Arch-Linux-Arm-M1/releases/latest/download/archlinux.tar.gz | tar xzf -
